@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img src="img\IMG_20250628_192235.jpg" id="india-gate" style="height: 300px;" alt="india-gate"></li>
+            <li><img src="img/1700992707871.jpg" id="pastry" alt="pastry" style="height: 300px;"></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElementl, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('pastry').onclick = function () {
+    //     alert("pastry clicked")
+    // }
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("click inside the ul")
+    // }, false)
+
+    // document.getElementById('pastry').addEventListener('click', function(e){
+    //     // alert("pastry clicked again")
+    //     // console.log(e);
+    //     console.log("click the pastry");
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(event){
+    //     event.preventDefault();
+    //     console.log("google clicked!");
+    // }, false)
+
+    document.getElementById('images').addEventListener('click', function(event){
+        console.log(event.target.tagName);
+        if (event.target.tagName === 'IMG') {
+            console.log(event.target.id);
+            
+            let removeIt = event.target.parentNode
+            removeIt.remove()
+        }
+        // removeIt.parentNode.removeChild(removeIt)
+    }, false)
+</script>
+</html>
