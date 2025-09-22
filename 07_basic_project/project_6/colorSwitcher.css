@@ -1,0 +1,24 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    margin-top: 20px;
+    background: aliceblue;
+    font-size: 24px;
+    padding: 12px 48px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 0 3px 3px black;
+    color: hotpink;
+    transform: translateY(-2px);
+}
