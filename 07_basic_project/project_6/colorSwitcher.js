@@ -1,3 +1,5 @@
+const bodyColor = document.getElementById('color')
+const date = new Date()
 // randomColor
 
 const randomColor = function(){
@@ -6,6 +8,7 @@ const randomColor = function(){
     for (let i = 0; i < 6; i++) {
         color += hex[Math.floor(Math.random() * 16)];
     }
+    bodyColor.innerHTML = `Your body color is ${color} and you started ${date.toLocaleTimeString()}`
     return color;
 };
 
