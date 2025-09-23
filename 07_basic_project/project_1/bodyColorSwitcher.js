@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll(".button")
 const body = document.querySelector("body")
+const bodyColor = document.getElementById('color')
 
 // buttons.forEach( function (button) {
 //     button.addEventListener('click',function(e){
@@ -23,21 +24,24 @@ buttons.forEach ( (button) => {
         switch (color) {
             case 'gray': 
                 body.style.backgroundColor = e.target.id
+                bodyColor.innerHTML = `Your body color is ${e.target.id}`
                 break;
             case 'orange': 
                 body.style.backgroundColor = e.target.id
+                bodyColor.innerHTML = `Your body color is ${e.target.id}`
                 break;
             case 'pink': 
                 body.style.backgroundColor = e.target.id
+                bodyColor.innerHTML = `Your body color is ${e.target.id}`
                 break;
             case 'blue': 
                 body.style.backgroundColor = e.target.id
+                bodyColor.innerHTML = `Your body color is ${e.target.id}`
                 break;
             case 'yellow': 
                 body.style.backgroundColor = e.target.id
+                bodyColor.innerHTML = `Your body color is ${e.target.id}`
                 break;
-            default:
-                body.style.backgroundColor = 'white'
         }
     })
 } )
