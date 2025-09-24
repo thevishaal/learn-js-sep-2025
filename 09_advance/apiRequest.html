@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+    <style>
+    .card {
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      margin: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+    <div id="card-container"></div>
+</body>
+<script>
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        // console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText) 
+            console.log(data);
+            // console.log(data.followers);
+
+            const container = document.getElementById("card-container");
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const img = document.createElement("img");
+            img.src = data.avatar_url;
+            card.appendChild(img);
+
+            const title = document.createElement("h3");
+            title.textContent = data.name;
+            card.appendChild(title);
+
+            const desc = document.createElement("p");
+            desc.textContent = data.bio;
+            card.appendChild(desc);
+
+            container.appendChild(card);
+
+        }
+    }
+    xhr.send()
+
+    // const container = document.getElementById("card-container");
+
+    // const card = document.createElement("div");
+    // card.className = "card";
+
+    // const img = document.createElement("img");
+    // img.src = "https://via.placeholder.com/250x150";
+    // card.appendChild(img);
+
+    // const title = document.createElement("h3");
+    // title.textContent = "JavaScript Card";
+    // card.appendChild(title);
+
+    // const desc = document.createElement("p");
+    // desc.textContent = "This card was created dynamically with JavaScript!";
+    // card.appendChild(desc);
+
+    // container.appendChild(card);
+
+</script>
+</html>
