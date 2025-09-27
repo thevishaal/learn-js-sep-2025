@@ -98,3 +98,43 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 } )
 .then((data) => console.log(data))
 .catch((error) => console.log(error))
+
+const promiseSix = new Promise( (resolve, reject) => {
+    setTimeout( () => {
+        console.log("hello");
+        resolve("promise six is resolved")
+    }, 2000 )
+} )
+
+promiseSix.then((response) => {
+    console.log(response);
+});
+
+new Promise((resolve, reject) => {
+    setTimeout( () => {
+        const error = false;
+        if(!error) {
+            const data = {
+                username: 'vishalbaghel', 
+                password: "123", 
+                mobile: '7417265871'
+            }
+            resolve(data)
+        } else {
+            reject('error....')
+        }
+    }, 3000)
+})
+.then((users) => {
+    console.log(users)
+    return users.mobile
+})
+.then( (mobile) => {
+    console.log(mobile);
+} )
+.catch((err) => {
+    console.log(err)
+})
+.finally(function(){
+    console.log("code is running");
+})
